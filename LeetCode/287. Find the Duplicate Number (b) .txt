@@ -30,6 +30,8 @@ All the integers in nums appear only once except for precisely one integer which
  ans:
 
 
+
+
  class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
