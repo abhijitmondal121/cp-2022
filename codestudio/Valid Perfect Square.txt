@@ -1,0 +1,55 @@
+Problem Statement
+You have been given an integer ‘N’. You are supposed to find if the given integer ‘N’ is a perfect square or not. A perfect square is an integer that is the square of an integer.
+Input Format:
+The first line contains an integer ‘T’ denoting the number of test cases. 
+
+The first input line of each test case contains an integer ‘N’ denoting the input integer.
+Output Format:
+For each test case, return “Yes” if the given number is a perfect square otherwise return “No”.
+Note:
+You don't have to print the output, it has already been taken care of. Just implement the given function.
+Follow Up:
+Try to do it without using built-in library functions like sqrt().
+Constraints:
+1 <= T <= 50
+1 <= N <= 10^18
+
+Time limit: 1 sec
+Sample Input 1:
+2
+4
+7    
+Sample Output 1:
+Yes
+No
+Explanation Of Sample Output 1:
+In test case 1, since (2 * 2 == 4) so print “Yes”.
+
+In test case 2, 7 is not a perfect square so print “No”.
+Sample Input 2:
+2
+15
+121
+Sample Output 2:
+No
+Yes
+Explanation Of Sample Output 2:
+In test case 1, 15 is not a perfect square so print “No”.
+
+In test case 2, since (11 * 11 == 121) so print “Yes”.
+
+
+
+
+*********************************************************************************************************************
+
+ans:
+
+#include<algorithm>
+bool isPerfectSquare(long long n) {
+	// Write your code here.
+    long long ans=sqrt(n);
+    if(ans*ans==n)
+        return true;
+    return false;
+}
