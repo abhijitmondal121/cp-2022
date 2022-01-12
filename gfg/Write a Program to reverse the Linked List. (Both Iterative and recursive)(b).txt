@@ -1,0 +1,129 @@
+Reverse a linked list
+Difficulty Level : Medium
+ 
+Given pointer to the head node of a linked list, the task is to reverse the linked list. We need to reverse the list by changing the links between nodes.
+
+Examples: 
+
+Input: Head of following linked list 
+1->2->3->4->NULL 
+Output: Linked list should be changed to, 
+4->3->2->1->NULL
+
+Input: Head of following linked list 
+1->2->3->4->5->NULL 
+Output: Linked list should be changed to, 
+5->4->3->2->1->NULL
+
+Input: NULL 
+Output: NULL
+
+
+
+Input: 1->NULL 
+Output: 1->NULL 
+
+
+**************************************************************************************************************************************
+
+ans:
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+// decleare a class
+class node{
+    public:
+    int data;
+    node* next;
+    
+    node(int val){
+        data=val;
+        next=NULL;
+    }
+};
+
+
+
+
+// insertAtEnd
+void insertAtEnd(node* &head,int val){
+    node* n=new node(val);
+    if(head==NULL){
+        head=n;
+        return;
+    }
+    node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    temp->next=n;
+    
+}
+
+
+// reverse a linklist using itarative method
+
+node* reverse(node* &head){
+    node* previous=NULL;
+    node* current=head;
+    node* nextptr;
+    while(current!=NULL){
+        nextptr=current->next;
+        current->next=previous;
+        
+        previous=current;
+        current=nextptr;
+    }
+    return previous;
+}
+
+
+// reverse a linklist using recursive method
+
+node* reverseRecursive(node* &head){
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    
+    node* newhead=reverseRecursive(head->next);
+    head->next->next=head;
+    head->next=NULL;
+    
+    return newhead;
+}
+
+
+
+
+// display all the element
+void display(node* head){
+    node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" -> ";
+        temp=temp->next;
+    }
+    cout<<"NULL"<<endl;
+}
+
+int main(){
+    
+    node*head=NULL;
+    insertAtEnd(head,1);
+    insertAtEnd(head,3);
+    insertAtEnd(head,4);
+    insertAtEnd(head,7);
+    insertAtHead(head,9);
+    display(head);
+    
+    // node* rev=reverse(head);
+    // display(rev);
+    node* rev=reverseRecursive(head);
+    display(rev);
+    
+    
+    return 0;
+}
